@@ -1,0 +1,138 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('card-bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 10px; 
+    width: 90%;
+    max-width: 600px;
+    justify-content: center;
+  }
+  
+  .card {
+    aspect-ratio: 1 / 1;
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  #score-container, #timer-container {
+    font-size: 4vw;
+  }
+  
+  @media (min-width: 600px) {
+    .card {
+        font-size: 48px;
+    }
+    #score-container, #timer-container {
+        font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    #game-board {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    }
+    .card {
+        font-size: 4vw;
+    }
+  }
+  
+  #timer-icon {
+    margin-right: 5px;
+    font-size: 60px;
+  }
+  
+  #timer {
+    font-size: 60px;
+    color: rgb(0, 0, 0);
+  }
+  
+  #score {
+    margin-right: 100px;
+    color: rgb(255, 255, 255);
+  }
+  
+  #aiscore {
+    color: rgb(255, 255, 255);
+  }
+  
+  #message-container {
+    color: rgb(255, 255, 255);
+  }
+  
+  #control button {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10%;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: aqua;
+  }
+  
+  .endGame {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: aqua;
+  }
+  
+  .front,.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    transition: transform 0.6s;
+    border: 2px solid #ccc;
+    border-radius: 10px; 
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(to right, #ff72ff, #fe7b7f);
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .front{
+    background-color: rgb(77, 57, 57);
+    align-items: center;
+    box-shadow: -1px -1px 0 #f00,  
+    1px -1px 0 #f00,
+   -1px  1px 0 #f00,
+    1px  1px 0 #f00, 
+    0 0 5px #f00;
+  }
+  
+  
